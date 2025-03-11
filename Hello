@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Special Proposal</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+            background-color: #f9f9f9;
+        }
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px gray;
+            display: inline-block;
+        }
+        h2 {
+            color: #333;
+        }
+        button {
+            padding: 10px 20px;
+            margin: 10px;
+            font-size: 18px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .yes {
+            background-color: #28a745;
+            color: white;
+        }
+        .no {
+            background-color: #dc3545;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Will you accept the proposal?</h2>
+    <button class="yes" onclick="accepted()">Yes</button>
+    <button class="no" onclick="thinkAgain()">No</button>
+</div>
+
+<script>
+    let noClickCount = 0;
+
+    function thinkAgain() {
+        noClickCount++;
+        if (noClickCount >= 3) {
+            document.querySelector('.no').style.display = 'none';
+        } else {
+            alert("Think again!");
+        }
+    }
+
+    function accepted() {
+        document.body.innerHTML = `
+            <div class="container">
+                <h2>Congratulations! Proposal Accepted ❤️🎉</h2>
+                <p>We knew you'd say yes!</p>
+            </div>
+        `;
+    }
+</script>
+
+</body>
+</html>
